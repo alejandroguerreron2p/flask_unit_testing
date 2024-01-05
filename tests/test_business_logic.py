@@ -1,23 +1,17 @@
+from business_logic import retrieve_book_logic, create_book_logic
+from api_dict import test_data
 
-
-@patch('business_logic.retrieve_book_db')
-def test_retrieve_book_logic(mock_retrieve_book_db):
-    # Mock the database layer
-    mock_retrieve_book_db.return_value = {'title': 'Test Book', 'author': 'Test Author'}
+def test_retrieve_book_logic():
 
     # Call the business logic layer function
-    result = retrieve_book_logic('123')
+    result = retrieve_book_logic(1)
 
     # Assert the expected result
-    assert result == {'title': 'Test Book', 'author': 'Test Author'}
+    assert result == {'title': 'Thus Spoke Zarathrusta', 'author': 'Friedrich Nietzsche'}
 
-@patch('business_logic.create_book_db')
-def test_create_book_logic(mock_create_book_db):
-    # Mock the database layer
-    mock_create_book_db.return_value = {'message': 'Book created successfully', 'book_id': '123'}
-
+def test_create_book_logic():
     # Call the business logic layer function
-    result = create_book_logic({'title': 'Test Book', 'author': 'Test Author'})
+    result = create_book_logic({'title': 'The Creative Act', 'author': 'Rick Rubin'})
 
     # Assert the expected result
-    assert result == {'message': 'Book created successfully', 'book_id': '123'}
+    assert result == {'message': 'Book created successfully', 'book_id': str(len(test_data))}

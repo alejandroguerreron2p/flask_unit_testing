@@ -1,30 +1,25 @@
-import json
-from main import app  # Assuming your Flask app is in a file named app.py
+from api_dict import test_data
 
-def test_get_book():
-    client = app.test_client()
-
+def test_get_book(client):
     # Assuming you have a book with ID '123' in your test database
-    response = client.get('/books/123')
+    response = client.get('/books/1')
 
     # Assert the response status code and content
     assert response.status_code == 200
-    assert response.json == {'title': 'Test Book', 'author': 'Test Author'}
+    assert response.json == {'title': 'Thus Spoke Zarathrusta', 'author': 'Friedrich Nietzsche'}
 
-def test_add_book():
-    client = app.test_client()
-
+def test_add_book(client):
     # Data for creating a new book
-    new_book_data = {'title': 'New Book', 'author': 'New Author'}
+    new_book_data = {'title': 'The Creative Act', 'author': 'Rick Rubin'}
 
     # Make a POST request to add a new book
     response = client.post('/books', json=new_book_data)
 
     # Assert the response status code and content
     assert response.status_code == 200
-    assert response.json == {'message': 'Book created successfully', 'book_id': '123'}  # Adjust book_id based on your actual response
+    assert response.json == {'message': 'Book created successfully', 'book_id': str(len(test_data))}  # Adjust book_id based on your actual response
 
     # Optionally, you can make a GET request to verify the new book has been added
-    response = client.get('/books/123')  # Use the actual book_id from the previous response
+    response = client.get(f'/books/{str(len(test_data))}')  # Use the actual book_id from the previous response
     assert response.status_code == 200
-    assert response.json == {'title': 'New Book', 'author': 'New Author'}
+    assert response.json == {'title': 'The Creative Act', 'author': 'Rick Rubin'}

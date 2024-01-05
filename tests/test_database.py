@@ -1,28 +1,16 @@
 from database import retrieve_book_db, create_book_db
-import pytest
-from main import app, client  # Adjust the import based on your project structure
+from api_dict import test_data
 
-@pytest.fixture
-def client():
-    with app.test_client() as client:
-        yield client
-
-def test_retrieve_book_db(mock_mongo):
-    # Mock the MongoDB interaction
-    mock_mongo.db.books.find_one.return_value = {'title': 'Test Book', 'author': 'Test Author'}
-
+def test_retrieve_book_db():
     # Call the database layer function
-    result = retrieve_book_db('123', None)
+    result = retrieve_book_db(2)
 
     # Assert the expected result
-    assert result == {'title': 'Test Book', 'author': 'Test Author'}
+    assert result == {'title': '1984', 'author': 'George Orwell'}
 
-def test_create_book_db(mock_mongo):
-    # Mock the MongoDB interaction
-    mock_mongo.db.books.insert_one.return_value.inserted_id = '123'
-
+def test_create_book_db():
     # Call the database layer function
-    result = create_book_db({'title': 'Test Book', 'author': 'Test Author'}, None)
+    result = create_book_db({'title': 'Dune', 'author': 'Frank Herbert'})
 
     # Assert the expected result
-    assert result == {'message': 'Book created successfully', 'book_id': '123'}
+    assert result == {'message': 'Book created successfully', 'book_id': str(len(test_data)) }

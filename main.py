@@ -1,10 +1,13 @@
+import os
 from flask import Flask, request, jsonify
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+from dotenv import load_dotenv
 
+load_dotenv()
 app = Flask(__name__)
 
-uri = "mongodb+srv://alejandroguerrero:zkCUbNlB1NHcM2SG@cluster.sjosggv.mongodb.net/?retryWrites=true&w=majority"
+uri = os.environ["MONGO_URI"]
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
 # Send a ping to confirm a successful connection

@@ -1,10 +1,9 @@
-from flask import Flask
+from main import create_app
 import pytest
 
 @pytest.fixture()
 def app():
-    app = Flask(__name__)
-    app.config.update({
+    app = create_app({
         "TESTING": True
     })
     yield app
@@ -12,3 +11,4 @@ def app():
 @pytest.fixture()
 def client(app):
     return app.test_client()
+1

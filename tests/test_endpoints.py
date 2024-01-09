@@ -23,3 +23,17 @@ def test_add_book(client):
     response = client.get(f'/books/{str(len(test_data))}')  # Use the actual book_id from the previous response
     assert response.status_code == 200
     assert response.json == {'title': 'The Creative Act', 'author': 'Rick Rubin'}
+
+def test_add_book_extra_values(client):
+    # Tests that certain fields are unknown
+    new_book_data = {'title': 'The Creative Act', 'author': 'Rick Rubin','unknown_value': 'super bad thing here!'}
+    response = client.post('/books', json=new_book_data)
+    assert response.status_code == 400
+    assert response.json == {"unknown_value": ["Unknown field."]}
+
+def test_add_book_missing_values(client):
+    # Tests that certain fields are unknown
+    new_book_data = {'title': 'The Creative Act'}
+    response = client.post('/books', json=new_book_data)
+    assert response.status_code == 400
+    assert response.json == {"author": ["Missing data for required field."]}

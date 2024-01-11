@@ -1,4 +1,4 @@
-from models.interfaces.book_repository_interface import BookRepositoryInterface
+from book_repository_interface import BookRepositoryInterface
 
 class ClientInterface(BookRepositoryInterface):
     def __init__(self, data):

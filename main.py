@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 from service import retrieve_book, create_book
 from models.client import Client
  
-
 def create_app(client, test_config=None):
     app = Flask(__name__)
 

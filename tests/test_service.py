@@ -1,4 +1,4 @@
-from client import retrieve_book, create_book
+from service import retrieve_book, create_book
 from api_dict import test_data
 
 def test_retrieve_book():

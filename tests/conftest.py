@@ -1,9 +1,11 @@
 from main import create_app
+from models.hash_book_repository import HashBookRepository
+from api_dict import test_data
 import pytest
 
 @pytest.fixture()
 def app():
-    app = create_app({
+    app = create_app(HashBookRepository(test_data),{
         "TESTING": True
     })
     yield app
@@ -11,4 +13,3 @@ def app():
 @pytest.fixture()
 def client(app):
     return app.test_client()
-1

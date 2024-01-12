@@ -1,6 +1,7 @@
 # flask_unit_testing
 ## Run the application
 Go to the cloned folder and run the following in Terminal or Command Prompt:
+
 MacOS/Linux:
 ```shell
 python -m venv .venv

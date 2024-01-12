@@ -1,7 +1,7 @@
 from flask import jsonify
 from marshmallow import ValidationError
-from hash_book_repository import HashBookRepository
-from service.book import Book
+from book_repository import HashBookRepository
+from book import Book
 
 class Service():
     def __init__(self, data):

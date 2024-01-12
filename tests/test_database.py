@@ -1,5 +1,5 @@
-from ..service.hash_book_repository import HashBookRepository
-from service.api_dict import test_data
+from book_repository import HashBookRepository
+from api_dict import test_data
 
 def test_retrieve_book_db():
     # Call the database layer function

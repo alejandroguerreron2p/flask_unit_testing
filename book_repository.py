@@ -1,5 +1,17 @@
-from interfaces.book_repository_interface import BookRepositoryInterface
-from service.api_dict import test_data
+from api_dict import test_data
+
+class BookRepositoryInterface:
+    def __init__(self, data):
+        self.data = data
+        
+    def find_book_by_id(self, book_id):
+        pass
+    def create_book(data):
+        pass
+    def update_book(book_id, data):
+        pass
+    def delete_book(book_id):
+        pass
 
 class HashBookRepository(BookRepositoryInterface):
     def __init__(self, data: dict):

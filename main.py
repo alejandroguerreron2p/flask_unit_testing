@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from service.service import Service
+from service import Service
  
 def create_app(test_config=None):
     app = Flask(__name__)

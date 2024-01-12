@@ -1,6 +1,4 @@
 from main import create_app
-from service.hash_book_repository import HashBookRepository
-from service.api_dict import test_data
 import pytest
 
 @pytest.fixture()

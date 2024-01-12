@@ -1,3 +1,4 @@
+import os
 import pytest
 from book_repository import HashBookRepository
 from api_dict import test_data

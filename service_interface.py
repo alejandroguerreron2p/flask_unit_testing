@@ -1,4 +1,4 @@
-class ClientInterface():
+class ServiceInterface():
     
     def retrieve_book():
         pass

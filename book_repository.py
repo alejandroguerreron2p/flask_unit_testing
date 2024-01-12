@@ -1,24 +1,22 @@
 from api_dict import test_data
 
 class BookRepositoryInterface:
-    def __init__(self, data):
-        self.data = data
         
     def find_book_by_id(self, book_id):
         pass
-    def create_book(data):
+    def create_book(self, data):
         pass
-    def update_book(book_id, data):
+    def update_book(self, book_id, data):
         pass
-    def delete_book(book_id):
+    def delete_book(self, book_id):
         pass
 
 class HashBookRepository(BookRepositoryInterface):
     def __init__(self, data: dict):
-        super().__init__(self, test_data)
+        self.data = data
         
-    def find_book_by_id(book_id):
-        if int(book_id) in test_data:
+    def find_book_by_id(self, book_id):
+        if int(book_id) in self.data:
             return test_data[int(book_id)]
         else:
             return {'error': 'Book not found'}
@@ -37,6 +35,5 @@ class HashBookRepository(BookRepositoryInterface):
     def delete_book(book_id):
         test_data.pop(book_id)
         return {'message': 'Book deleted successfully', 'book_id': str(book_id)}
-    
-    
+        
         

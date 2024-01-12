@@ -1,4 +1,4 @@
-from api_dict import test_data
+from service.api_dict import test_data
 
 def test_get_book(client):
     # Assuming you have a book with ID '123' in your test database

@@ -1,4 +1,4 @@
-from service.api_dict import test_data
+from api_dict import test_data
 
 def test_get_book(client):
     # Assuming you have a book with ID '123' in your test database
@@ -8,7 +8,12 @@ def test_get_book(client):
     assert response.status_code == 200
     assert response.json == {'title': 'Thus Spoke Zarathrusta', 'author': 'Friedrich Nietzsche'}
 
-def test_add_book(client):
+def test_retrieve_non_existent_book(client):
+    response = client.get('/books/3')
+    assert response.status_code == 400
+    assert response.json == {"error": "Book not found"}
+
+def test_add_book(client, setup_data):
     # Data for creating a new book
     new_book_data = {'title': 'The Creative Act', 'author': 'Rick Rubin'}
 

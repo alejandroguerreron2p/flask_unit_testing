@@ -5,8 +5,7 @@ from api_dict import test_data
 
 @pytest.fixture
 def setup_data():
-    yield HashBookRepository(test_data)
-
+    yield test_data
 
 def test_retrieve_book_db(setup_data):
     result = setup_data.find_book_by_id(2)

@@ -26,28 +26,34 @@ pytest
 ```
 
 ## Run Code Coverage
-Run the code coverage of each test file.
+Run the code coverage of the project, in the root folder.
 ```shell
-cd tests
 coverage run -m pytest
 coverage report
 ```
 
 The report should look like this.
 ```
-Name                                                                         Stmts   Miss  Cover
-------------------------------------------------------------------------------------------------
-C:\Users\alguerrero\Documents\coding\flask_unit_testing\api_dict.py              1      0   100%
-C:\Users\alguerrero\Documents\coding\flask_unit_testing\book.py                  4      0   100%
-C:\Users\alguerrero\Documents\coding\flask_unit_testing\book_repository.py      52     18    65%
-C:\Users\alguerrero\Documents\coding\flask_unit_testing\main.py                 40      0   100%
-C:\Users\alguerrero\Documents\coding\flask_unit_testing\service.py              36      4    89%
-__init__.py                                                                      0      0   100%
-conftest.py                                                                     10      0   100%
-test_database.py                                                                35      0   100%
-test_endpoints.py                                                               71      0   100%
-test_factory.py                                                                  4      0   100%
-test_service.py                                                                 35      0   100%
-------------------------------------------------------------------------------------------------
-TOTAL                                                                          288     22    92%
+Name                 Stmts   Miss  Cover
+----------------------------------------
+api_dict.py              1      0   100%
+book.py                  4      0   100%
+book_repository.py      27      0   100%
+main.py                 40      0   100%
+service.py              32      0   100%
+----------------------------------------
+TOTAL                  104      0   100%
 ```
+
+For the HTML Version, which is for user friendly and checks for missing statements.
+```shell
+coverage run -m pytest
+coverage html
+```
+It will pop up this message
+```
+Wrote HTML report to htmlcov\index.html
+```
+In the File Explorer, go to your app folder and go to the 'htmlcov' folder, click on index.html
+It will open a Coverage report, something like this.
+![image](https://github.com/alejandroguerreron2p/flask_unit_testing/assets/150069261/256a5f9e-04e0-41e9-b997-d73d2393055e)

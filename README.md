@@ -1,5 +1,5 @@
 # flask_unit_testing
-This is a small application to use as a reference for future unit testings on projects.
+This is a small application to use as a reference for future unit testing on projects.
 ## Run the application
 Go to the cloned folder and run the following in Terminal or Command Prompt:
 
@@ -48,7 +48,7 @@ TOTAL                  104      0   100%
 ```
 
 ### HTML Version Report
-For the HTML Version, which is for user friendly and checks for missing statements.
+For the HTML Version, which is user friendlier and checks for missing statements.
 ```shell
 coverage run -m pytest
 coverage html

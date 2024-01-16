@@ -3,13 +3,13 @@ from book import Book
 
 class ServiceInterface():
     def retrieve_book(self, book_id):
-        pass
+        raise NotImplementedError
     def create_book(self, data):
-        pass
+        raise NotImplementedError
     def update_book(self, book_id, data):
-        pass
+        raise NotImplementedError
     def delete_book(self, book):
-        pass
+        raise NotImplementedError
 
 class Service():
     def __init__(self, book_repo):

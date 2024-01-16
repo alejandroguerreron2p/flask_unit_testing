@@ -2,13 +2,13 @@ import uuid
 
 class BookRepositoryInterface:
     def find_book_by_id(self, book_id):
-        pass
+        raise NotImplementedError
     def create_book(self, data):
-        pass
+        raise NotImplementedError
     def update_book(self, book_id, data):
-        pass
+        raise NotImplementedError
     def delete_book(self, book_id):
-        pass
+        raise NotImplementedError
 
 class HashBookRepository(BookRepositoryInterface):
     def __init__(self, data: dict):

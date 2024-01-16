@@ -1,0 +1,10 @@
+[tool.coverage.run]
+omit = [
+    "*/tests/*"
+]
+
+[tool.coverage.report]
+exclude_also = [
+    "raise NotImplementedError"
+]
+    

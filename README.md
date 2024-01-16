@@ -1,4 +1,5 @@
 # flask_unit_testing
+This is a small application to use as a reference for future unit testings on projects.
 ## Run the application
 Go to the cloned folder and run the following in Terminal or Command Prompt:
 
@@ -26,6 +27,7 @@ pytest
 ```
 
 ## Run Code Coverage
+### Command Report
 Run the code coverage of the project, in the root folder.
 ```shell
 coverage run -m pytest
@@ -45,6 +47,7 @@ service.py              32      0   100%
 TOTAL                  104      0   100%
 ```
 
+### HTML Version Report
 For the HTML Version, which is for user friendly and checks for missing statements.
 ```shell
 coverage run -m pytest

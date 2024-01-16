@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from book_repository import HashBookRepository, RealBookRepository
+from book_repository import HashBookRepository
 from service import Service
 from api_dict import test_data
  
@@ -12,7 +12,7 @@ def create_app(test_config=None):
         book_repository = HashBookRepository(copy_td)
         service = Service(book_repository)
     else:
-        book_repository = RealBookRepository(test_data)
+        book_repository = HashBookRepository(test_data)
         service = Service(book_repository)
 
     @app.route('/books/<book_id>', methods=['GET'])
